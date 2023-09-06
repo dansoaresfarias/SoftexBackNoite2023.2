@@ -18,6 +18,17 @@ console.log(notasTurma);
 
 console.log(notasTurma[2][1]);
 
+var strNotas = "Nota 1 | Nota 2 | Nota 3 | \n";
+notasTurma.forEach(notasAluno => {
+    notasAluno.forEach(nota => {
+        strNotas +=  "  " + nota.toFixed(1) + "  |";
+    });
+    strNotas += "\n";
+});
+
+console.log(strNotas);
+
+
 var notasTurmaOjAluno = [{nome : "Alex Lopes", notas : [9, 8.5, 7.5], mat : 17873},
 {nome : "Vincius Sobreira", notas : [7, 8.5, 9.5], mat : 17871}];
 
