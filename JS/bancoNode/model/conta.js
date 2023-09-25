@@ -45,6 +45,16 @@ export class Conta {
     }
 
     // realizar pagamento da conta
+    pagar(valor) {
+        if (this.saldo >= valor) {
+            this.saldo -= valor;
+            let trans = new Transacao(TIPOTRANSACAO.pagar, new Date().toLocaleDateString(), valor, null, '-');
+            this.transacoes.push(trans);
+        } else {
+            // lançar um erro
+            console.error('Erro: Saldo insuficiente'+ valor +'maior do que o saldo' + this.saldo + '.');
+        }
+    }
 
     // mostrar saldo da conta
 
