@@ -26,19 +26,30 @@ export class Conta {
             let trans = new Transacao(TIPOTRANSACAO.debitar, new Date().toLocaleDateString(), valor, null, '-');
             this.transacoes.push(trans);
         } else {
-            // lança um erro
-            console.log('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
+            // lançar um erro
+            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
         }
     }
 
     // transferir da conta
+    transferir(valor, contaFav){
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+            let trans = new Transacao(TIPOTRANSACAO.transferir, new Date().toLocaleDateString(), valor, contaFav.cliente, '-');
+            this.transacoes.push(trans);
+            contaFav.saldo += valor;
+            let transFav = new Transacao(TIPOTRANSACAO.transferir, new Date().toLocaleDateString(), valor, this.cliente, '+');
+        }else {
+            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
+        }
+    }
 
     // realizar pagamento da conta
 
     // mostrar saldo da conta
 
-    // mostrar extrato da conta
-
     // toString da conta
+
+    // mostrar extrato da conta
 
 }
