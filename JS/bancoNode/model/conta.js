@@ -39,6 +39,7 @@ export class Conta {
             this.transacoes.push(trans);
             contaFav.saldo += valor;
             let transFav = new Transacao(TIPOTRANSACAO.transferir, new Date().toLocaleDateString(), valor, this.cliente, '+');
+            contaFav.transacoes.push(transFav);
         }else {
             console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
         }
@@ -57,8 +58,14 @@ export class Conta {
     }
 
     // mostrar saldo da conta
+    mostrarSaldo(){
+        console.log("Saldo: R$ " + this.saldo);
+    }
 
     // toString da conta
+    toString(){
+        return `Agência: ${this.agencia.numero} | Nº Conta: ${this.numero}\n`;
+    }
 
     // mostrar extrato da conta
 
