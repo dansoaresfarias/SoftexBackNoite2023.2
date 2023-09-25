@@ -59,14 +59,28 @@ export class Conta {
 
     // mostrar saldo da conta
     mostrarSaldo(){
-        console.log("Saldo: R$ " + this.saldo);
+        return "Saldo: R$ " + this.saldo;
     }
 
     // toString da conta
     toString(){
-        return `Agência: ${this.agencia.numero} | Nº Conta: ${this.numero}\n`;
+        return `\tAgência: ${this.agencia.numero} | Nº Conta: ${this.numero}\n`;
     }
 
     // mostrar extrato da conta
-
+    mostrarExtrato(){
+        let extrato = "\t\t\tEXTRATO DE CONTA\n";
+        extrato += "\t---------------------------------------------------\n";
+        extrato += this.toString();
+        extrato += this.cliente.toString();
+        extrato += "\t---------------------------------------------------\n";
+        extrato += "\tDATA\t\tHISTÓRICO\t\tVALOR (R$)\n";
+        extrato += "\t---------------------------------------------------\n";
+        for (const trans of this.transacoes) {
+            extrato += trans.toString();
+        }
+        extrato += "\t---------------------------------------------------\n";
+        extrato += `\tSaldo:\t\t R$ ${this.saldo.toFixed(2)}`;
+        return extrato;
+    }
 }

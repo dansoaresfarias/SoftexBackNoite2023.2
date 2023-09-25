@@ -8,4 +8,8 @@ export class Cliente{
         this.telfone = telfone;
         this.end = end;
     }
+
+    toString(){
+        return `\tCliente: ${this.nome} | CPF: ${this.cpf}\n`;
+    }
 }

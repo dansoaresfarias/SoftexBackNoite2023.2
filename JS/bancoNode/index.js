@@ -23,8 +23,8 @@ contaEgito.depositar(4000);
 contaLuis.pagar(380);
 contaLuis.pagar(500);
 
-console.log(contaEgito.toString());
-contaEgito.mostrarSaldo();
-console.log(contaEgito);
-console.log("\n================================\n");
-console.log(contaLuis);
+//console.log(contaEgito.toString());
+//console.log(contaEgito.mostrarSaldo());
+console.log(contaEgito.mostrarExtrato());
+console.log("\n");
+console.log(contaLuis.mostrarExtrato());
