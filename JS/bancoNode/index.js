@@ -20,6 +20,12 @@ contaEgito.pagar(300);
 contaEgito.transferir(500, contaLuis);
 contaEgito.depositar(4000);
 
+//contaEgito.saldo = 1000;
+contaEgito.numero = 4327;
+//contaEgito.setNumero(4329);
+console.log(contaEgito.saldo);
+//contaEgito._saldo = 1000;
+
 contaLuis.pagar(380);
 contaLuis.pagar(500);
 
