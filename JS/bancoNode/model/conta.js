@@ -1,3 +1,4 @@
+import { TaxasJuros } from "./taxasJuros.js";
 import { TIPOTRANSACAO } from "./tipoTransacao.js";
 import { Transacao } from "./transacao.js";
 
@@ -9,6 +10,8 @@ export class Conta {
     #saldo;
     #status;
     #transacoes;
+    //atributo (static) da classe Conta  
+    static contador = 0;
 
     constructor(cliente, numero, agencia, saldo) {
         this.#cliente = cliente;
@@ -18,6 +21,12 @@ export class Conta {
         this.#saldo = saldo;
         this.#status = true;
         this.#transacoes = [];
+        Conta.contador++;
+    }
+
+    //método (static) da classe conta
+    static mostrarContador() {
+        return `O número de contas já criadas é: ${Conta.contador}`;
     }
 
     // depositar da conta
@@ -29,13 +38,13 @@ export class Conta {
 
     // sacar da conta
     sacar(valor) {
-        if (this.#saldo >= valor) {
-            this.#saldo -= valor;
+        if (this.#saldo >= TaxasJuros.calcularIOF(valor)) {
+            this.#saldo -= TaxasJuros.calcularIOF(valor);
             let trans = new Transacao(TIPOTRANSACAO.debitar, new Date().toLocaleDateString(), valor, null, '-');
             this.#transacoes.push(trans);
         } else {
             // lançar um erro
-            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.#saldo + '.');
+            console.error('Erro: Saldo insuficiente ' + valor + ' maior do que o saldo ' + this.#saldo + '.');
         }
     }
 
@@ -49,7 +58,7 @@ export class Conta {
             let transFav = new Transacao(TIPOTRANSACAO.transferir, new Date().toLocaleDateString(), valor, this.#cliente, '+');
             contaFav.#transacoes.push(transFav);
         } else {
-            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.#saldo + '.');
+            console.error('Erro: Saldo insuficiente ' + valor + ' maior do que o saldo ' + this.#saldo + '.');
         }
     }
 
@@ -61,13 +70,23 @@ export class Conta {
             this.#transacoes.push(trans);
         } else {
             // lançar um erro
-            console.error('Erro: Saldo insuficiente' + valor + 'maior do que o saldo' + this.#saldo + '.');
+            console.error('Erro: Saldo insuficiente ' + valor + ' maior do que o saldo ' + this.#saldo + '.');
         }
+    }
+
+    render(rendimento){
+        this.#saldo += rendimento;
+        let trans = new Transacao(TIPOTRANSACAO.render, new Date().toLocaleDateString(), rendimento, null, '+');
+        this.#transacoes.push(trans);
     }
 
     // mostrar saldo da conta
     mostrarSaldo() {
         return "Saldo: R$ " + this.#saldo;
+    }
+
+    getSaldo(){
+        return this.#saldo;
     }
 
     // toString da conta
