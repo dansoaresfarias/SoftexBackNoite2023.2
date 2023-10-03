@@ -14,14 +14,18 @@ export class Conta {
     static contador = 0;
 
     constructor(cliente, numero, agencia, saldo) {
-        this.#cliente = cliente;
-        this.#numero = numero;
-        this.#agencia = agencia;
-        this.#dataCriacao = new Date().toLocaleDateString();
-        this.#saldo = saldo;
-        this.#status = true;
-        this.#transacoes = [];
-        Conta.contador++;
+        if (this.constructor == Conta) {
+            throw new Error('Não é possível instanciar a classe Conta');
+        } else {
+            this.#cliente = cliente;
+            this.#numero = numero;
+            this.#agencia = agencia;
+            this.#dataCriacao = new Date().toLocaleDateString();
+            this.#saldo = saldo;
+            this.#status = true;
+            this.#transacoes = [];
+            Conta.contador++;
+        }
     }
 
     //método (static) da classe conta
@@ -73,10 +77,16 @@ export class Conta {
             console.error('Erro: Saldo insuficiente ' + valor + ' maior do que o saldo ' + this.#saldo + '.');
         }
     }
-
+    // necessário pois não tem em JS o protected
     render(rendimento){
         this.#saldo += rendimento;
         let trans = new Transacao(TIPOTRANSACAO.render, new Date().toLocaleDateString(), rendimento, null, '+');
+        this.#transacoes.push(trans);
+    }
+    // necessário pois não tem em JS o protected
+    cobrarTaxa(taxa){
+        this.#saldo -= taxa;
+        let trans = new Transacao(TIPOTRANSACAO.cobrarTaxa, new Date().toLocaleDateString(), taxa, null, '-');
         this.#transacoes.push(trans);
     }
 

@@ -3,5 +3,6 @@ export const TIPOTRANSACAO = {
     creditar : "CRÉDITO\t",
     transferir : "TRANSFERÊNCIA",
     pagar : "PAGAMENTO",
-    render : "RENDIMENTO"
+    render : "RENDIMENTO",
+    cobrarTaxa : "TARIFAÇÃO"
 }

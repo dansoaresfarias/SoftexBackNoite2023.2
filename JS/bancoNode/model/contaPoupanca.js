@@ -28,4 +28,14 @@ export class Poupanca extends Conta{
         let rendimento = saldoAtual - super.getSaldo();
         super.render(rendimento);
     }
+
+    /*
+    // Polimorfísmo de sobrecarga de método, não existe em JS.
+    render(){
+        console.log("render passou aqui");
+        let saldoAtual = super.getSaldo();
+        saldoAtual += saldoAtual*this.#taxaRendimento;
+        let rendimento = saldoAtual - super.getSaldo();
+        super.render(rendimento);
+    }*/
 }
