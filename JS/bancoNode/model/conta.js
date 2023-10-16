@@ -48,6 +48,7 @@ export class Conta {
             this.#transacoes.push(trans);
         } else {
             // lançar um erro
+            throw new Error('Saldo insuficiente ' + valor + ' maior do que o saldo ' + this.#saldo + '.');
             console.error('Erro: Saldo insuficiente ' + valor + ' maior do que o saldo ' + this.#saldo + '.');
         }
     }

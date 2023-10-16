@@ -35,6 +35,19 @@ contaLuis.pagar(380);
 contaLuis.pagar(500);
 contaLuis.cobrarTaxaManutencao();
 
+/*try {
+    contaLuis.pagar(500);
+} catch (error) {
+    console.log(error);
+}
+
+
+try {
+    contaLuis.sacar(1000);
+} catch (error) {
+    console.log(error);
+}*/
+
 contaLuisP.depositar(1000);
 console.log(contaLuisP.mostrarExtrato());
 contaLuisP.render(4);
