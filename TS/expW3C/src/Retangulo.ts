@@ -5,9 +5,9 @@ export class Retangulo implements iRetangular {
     altura: number;
     largura: number;
 
-    public constructor(altura: number, largura: number) {
+    public constructor(altura : number = 0, largura ?: number) {
         this.altura = altura;
-        this.largura = largura;
+        this.largura = (largura || 0);
     }
 
     area(): number {

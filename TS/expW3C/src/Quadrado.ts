@@ -3,11 +3,9 @@ import { iRetangular } from "./iRetangular";
 export class Quadrado implements iRetangular {
 
     altura: number;
-    largura: number;
 
     public constructor(lado: number) {
         this.altura = lado;
-        this.largura = lado;
     }
 
     area(): number {
@@ -15,7 +13,7 @@ export class Quadrado implements iRetangular {
     }
 
     perimetro(): number {
-        return 2 * this.altura + 2 * this.largura;
+        return 4 * this.altura;
     }
 
 }

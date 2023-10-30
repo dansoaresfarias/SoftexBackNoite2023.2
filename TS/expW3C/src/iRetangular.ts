@@ -1,6 +1,6 @@
 export interface iRetangular {
     altura : number;
-    largura : number;
+    largura ?: number;
 
     area() : number ;
     perimetro() : number ;
