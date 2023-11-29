@@ -6,6 +6,7 @@ var joao = new Cliente("João Victor", "jvm@softex.com.br");
 var rodrigo = new Cliente("Rodrigo Duarte", "rds@softex.com.br");
 var thiago = new Cliente("Thiago Jomar", "tjf@softex.com.br");
 
+
 var nadjaImports = new Loja("Nadja Imports", "Muamba");
 
 Observer.addCliente(joao);
