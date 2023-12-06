@@ -2,5 +2,15 @@
 2 - npm i -D typescript
 3 - npm i -D tsx
 4 - npx tsc --init
+    4.1 - no tsconfig atualizar:
+        a. No inicio inserir --> "include": ["src"],
+        b. No "compilerOptions" descomentar a linha --> "outDir": "./build",
 5 - npx gitignore node
-6 - npm i -g ts-node 
+6 - npm i -D ts-node-dev
+7 - Ajustar o package.json em "scripts" para:
+        "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "dev": "ts-node-dev src/index.ts",
+            "start": "node build/index.js",
+            "build": "rimraf .build && tsc"
+        }
