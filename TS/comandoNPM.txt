@@ -3,7 +3,7 @@
 3 - npm i -D tsx
 4 - npx tsc --init
     4.1 - no tsconfig atualizar:
-        a. No inicio inserir --> "include": ["src"],
+        a. No inicio inserir --> "include": ["./src"],
         b. No "compilerOptions" descomentar a linha --> "outDir": "./build",
 5 - npx gitignore node
 6 - npm i -D ts-node-dev
@@ -14,3 +14,7 @@
             "start": "node build/index.js",
             "build": "rimraf .build && tsc"
         }
+8 - npm i express
+9 - npm i -D @types/express
+10 - npm i cors
+11 - npm i -D @types/cors
