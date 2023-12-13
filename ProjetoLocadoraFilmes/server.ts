@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import Server from "./src/index";
 
 const app: Application = express();
@@ -16,5 +16,3 @@ app
             console.log(err);
         }
     });
-
-app.get("/", (req: Request, res: Response) => { return res.status(200).json("Olá mundo!") })
