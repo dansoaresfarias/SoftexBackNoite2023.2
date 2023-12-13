@@ -1,4 +1,4 @@
-import express, { Application } from "express";
+import express, { Application, Request, Response } from "express";
 import Server from "./src/index";
 
 const app: Application = express();

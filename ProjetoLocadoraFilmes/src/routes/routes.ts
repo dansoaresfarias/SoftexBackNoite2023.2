@@ -1,9 +1,9 @@
 import { Application } from "express";
-import HomeRoutes from "./home.routes";
+import homeRoutes from "./home.routes";
 
 export default class Routes {
   constructor(app: Application) {
-    app.use("/alohaFilmes", HomeRoutes);
-    //app.use("/api/tutorials", tutorialRoutes);
+    app.use("/alohaFilmes", homeRoutes);
+
   }
 }
