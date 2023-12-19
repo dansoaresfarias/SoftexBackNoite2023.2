@@ -3,18 +3,18 @@ import { Genero } from "./genero";
 export class Filme {
 
     //  Fields
-    private id: number;
-    private tituloOriginal: string;
-    private tituloPtBr: string;
-    private preco: number;
-    private duracao: number;
-    private ano: number;
-    private faixaEtaria: string;
-    private generos: Array<Genero>;
+    id: number;
+    tituloOriginal: string;
+    tituloPtBr: string;
+    preco: number;
+    duracao: number;
+    ano: number;
+    faixaEtaria: string;
+    generos: Array<Genero>;
 
     // Constructor
     constructor(id: number, tituloOriginal: string, tituloPtBr: string, preco: number, duracao: number,
-        ano: number, faixaEtaria: string, generos: Array<Genero>) {
+        ano: number, faixaEtaria: string, generos : Array<Genero>) {
         this.id = id;
         this.tituloOriginal = tituloOriginal;
         this.tituloPtBr = tituloPtBr;
