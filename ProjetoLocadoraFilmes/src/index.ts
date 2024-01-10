@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import cors, { CorsOptions } from "cors";
 import Routes from "./routes/routes";
+import "reflect-metadata";
 
 
 export default class Server {

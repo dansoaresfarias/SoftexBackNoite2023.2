@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 -- Table `locadoraFAP`.`Telefone`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadoraFAP`.`Telefone` (
-  `idTelefone` INT NOT NULL,
+  `idTelefone` INT NOT NULL AUTO_INCREMENT,
   `numero` VARCHAR(11) NOT NULL,
   `Cliente_CPF` VARCHAR(14) NULL,
   `Funcionario_CPF` VARCHAR(14) NULL,
@@ -125,7 +125,7 @@ ENGINE = InnoDB;
 -- Table `locadoraFAP`.`Status`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadoraFAP`.`Status` (
-  `idStatus` INT NOT NULL,
+  `idStatus` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
@@ -135,7 +135,7 @@ ENGINE = InnoDB;
 -- Table `locadoraFAP`.`Filme`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadoraFAP`.`Filme` (
-  `idFilme` INT NOT NULL,
+  `idFilme` INT NOT NULL AUTO_INCREMENT,
   `tituloOriginal` VARCHAR(80) NOT NULL,
   `tituloPT` VARCHAR(80) NULL,
   `preco` DECIMAL(3,2) NOT NULL,
@@ -150,7 +150,7 @@ ENGINE = InnoDB;
 -- Table `locadoraFAP`.`Midia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadoraFAP`.`Midia` (
-  `idMidia` INT NOT NULL,
+  `idMidia` INT NOT NULL AUTO_INCREMENT,
   `tipo` VARCHAR(45) NOT NULL,
   `secao` VARCHAR(45) NOT NULL,
   `local` VARCHAR(45) NOT NULL,
@@ -176,7 +176,7 @@ ENGINE = InnoDB;
 -- Table `locadoraFAP`.`Genero`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadoraFAP`.`Genero` (
-  `idGenero` INT NOT NULL,
+  `idGenero` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idGenero`))
 ENGINE = InnoDB;
