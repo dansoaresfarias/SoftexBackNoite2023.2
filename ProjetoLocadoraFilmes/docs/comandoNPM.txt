@@ -18,3 +18,4 @@
 9 - npm i -D @types/express
 10 - npm i cors
 11 - npm i -D @types/cors
+12 - npm i -D @types/node
