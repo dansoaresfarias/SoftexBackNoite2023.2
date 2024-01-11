@@ -1,15 +1,16 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { config, dialect } from "../config/db.config"
+import { Genero } from "../models/genero"
 
-const AppDataSource = new DataSource({
+export const AppDataSource = new DataSource({
     type: dialect,
     host: config.HOST,
     port: config.PORT,
     username: config.USER,
     password: config.PASSWORD,
     database: config.DB,
-    entities: [],
+    entities: [Genero],
     synchronize: true,
     logging: false,
 })
